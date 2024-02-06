@@ -5,7 +5,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
 
-public class MyTestBean implements BeanFactoryAware {
+public class MyTestBean {
 
 	private String testStr = "TestStr";
 
@@ -13,9 +13,7 @@ public class MyTestBean implements BeanFactoryAware {
 		return testStr;
 	}
 
-	@Override
-	public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-		Object myTestBean = beanFactory.getBean("myTestBean");
-		System.out.println(myTestBean);
+	public void setTestStr(String str) {
+		this.testStr = str;
 	}
 }
